@@ -9,7 +9,7 @@
     text-color="#fff"
     active-text-color="#ffd04b"
   >
-    <h3>小兔仙后台管理系统</h3>
+    <h3>{{ isCollapse ? '后台' : '小兔仙后台管理系统' }}</h3>
     <el-menu-item
       :index="item.name"
       v-for="item in noChildren"
@@ -51,6 +51,9 @@
     font-weight: 400;
   }
 }
+.el-menu {
+  border-right: none;
+}
 </style>
 
 <script>
@@ -59,7 +62,7 @@ export default {
   data () {
     return {
       // 控制菜单是否折叠，默认不折叠
-      isCollapse: false,
+      // isCollapse: false,
       menuData: [
         {
           path: '/',
@@ -131,6 +134,9 @@ export default {
     // 有子菜单
     hasChildren () {
       return this.menuData.filter(item => item.children)
+    },
+    isCollapse () {
+      return this.$store.state.tab.isCollapse
     }
   }
 }
