@@ -115,7 +115,11 @@ export default {
     // 点击菜单实现跳转
     clickMenu (item) {
       // console.log(item)
-      this.$router.push(item.path)
+      // 当页面的路由与跳转的路由不一致才允许跳转
+      if (this.$route.path !== item.path && !(this.$route.path === '/home' && (item.path === '/'))) {
+        this.$router.push(item.path)
+      }
+      // this.$router.push(item.path)
     }
   },
   computed: {
