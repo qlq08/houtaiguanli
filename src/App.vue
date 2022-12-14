@@ -1,10 +1,13 @@
 <template>
-  <div>我是根组件</div>
+  <div id="app">
+    <!-- 路由出口  -->
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: "App"
 }
 </script>
 
