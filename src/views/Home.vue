@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import { getData } from '@/api'
 export default {
   name: 'MyHome',
   data () {
@@ -144,6 +145,11 @@ export default {
       ]
     }
   },
+  mounted () {
+    getData().then((data) => {
+      console.log(data)
+    })
+  }
 }
 </script>
 
