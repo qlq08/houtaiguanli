@@ -5,11 +5,16 @@
     @open="handleOpen"
     @close="handleClose"
     :collapse="isCollapse"
+    background-color="#545c64"
+    text-color="#fff"
+    active-text-color="#ffd04b"
   >
+    <h3>小兔仙后台管理系统</h3>
     <el-menu-item
       :index="item.name"
       v-for="item in noChildren"
       :key="item.name"
+      @click="clickMenu(item)"
     >
       <i :class="`el-icon-${item.icon}`"></i>
       <span slot="title">{{ item.label }}</span>
@@ -24,15 +29,27 @@
         <span slot="title">{{ item.label }}</span>
       </template>
       <el-menu-item-group v-for="subItem in item.children" :key="subItem.path">
-        <el-menu-item :index="subItem.path">{{ subItem.label }}</el-menu-item>
+        <el-menu-item :index="subItem.path" @click="clickMenu(subItem)">{{
+          subItem.label
+        }}</el-menu-item>
       </el-menu-item-group>
     </el-submenu>
   </el-menu>
 </template>
-<style>
+<style lang="less" scoped>
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;
+}
+.el-menu {
+  height: 100vh;
+  h3 {
+    text-align: center;
+    line-height: 48px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+  }
 }
 </style>
 
@@ -94,6 +111,11 @@ export default {
     },
     handleClose (key, keyPath) {
       console.log(key, keyPath)
+    },
+    // 点击菜单实现跳转
+    clickMenu (item) {
+      // console.log(item)
+      this.$router.push(item.path)
     }
   },
   computed: {
