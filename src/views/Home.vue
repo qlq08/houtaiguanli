@@ -123,6 +123,7 @@ export default {
     }
   },
   mounted () {
+
     getData().then(({ data }) => {
       // 表格数据
       const { tableData } = data.data
@@ -157,7 +158,7 @@ export default {
           type: 'line'
         })
       })
-      console.log(echarts1Option)
+      // console.log(echarts1Option)
       // 使用刚指定的配置项和数据显示图表
       echarts1.setOption(echarts1Option)
       // console.log(xAxis)
@@ -239,6 +240,7 @@ export default {
       }
       echarts3.setOption(echarts3Option)
     })
+
   }
 }
 </script>
