@@ -71,7 +71,8 @@ export default {
               this.$store.commit('setMenu', data.data.menu)
               this.$store.commit('addMenu', this.$router)
               // 跳转到首页
-              this.$router.push('/home')
+              // this.$router.push('/home')
+              this.$router.push({ name: 'home' })
             } else {
               this.$message.error(data.data.message)
             }
