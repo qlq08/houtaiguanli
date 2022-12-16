@@ -2,6 +2,7 @@ import Mock from 'mockjs'
 
 import homeapi from '@/api/mockServeData/home'
 import user from '@/api/mockServeData/user'
+import permission from '@/api/mockServeData/permission'
 // 定义mock请求拦截
 /* Mock.mock('/api/home/getData', function () {
   // 拦截到请求后的处理逻辑
@@ -20,3 +21,5 @@ Mock.mock('/api/user/del', 'post', user.deleteUser)
 
 // Mock.mock('/api/user/getUser', 'get', user.getUserList)
 Mock.mock(/api\/user\/getUser/, 'get', user.getUserList)
+Mock.mock(/api\/permission\/getMenu/, 'post', permission.getMenu)
+
